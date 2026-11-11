@@ -1,0 +1,489 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Révisions 6e</title>
+<style>
+  :root { font-family: Verdana, Arial, sans-serif; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:#eef2ff; color:#111; }
+  header { background:#1e40af; color:#fff; padding:18px; text-align:center; }
+  header h1 { margin:0; font-size:1.6em; letter-spacing:1px; text-transform:uppercase; }
+  header p { margin:6px 0 0; font-weight:bold; }
+  nav { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; padding:14px; background:#fff; }
+  nav button { border:none; border-radius:12px; padding:14px 18px; font-size:1em; font-weight:bold; cursor:pointer; font-family:inherit; text-transform:uppercase; }
+  .tab-sciences { background:#1d4ed8; color:#fff; }
+  .tab-histoire { background:#b45309; color:#fff; }
+  .tab-francais { background:#be185d; color:#fff; }
+  .tab-anglais { background:#15803d; color:#fff; }
+  .tab-maths { background:#4f46e5; color:#fff; }
+  .tab-musique { background:#a21caf; color:#fff; }
+  .tab-programme { background:#334155; color:#fff; }
+  nav button.active { outline:4px solid #111; }
+  main { max-width:900px; margin:0 auto; padding:16px; }
+  .card { border-radius:16px; padding:16px; margin:14px 0; color:#fff; }
+  .card h2 { margin:0 0 8px; text-transform:uppercase; letter-spacing:1px; }
+  .blue { background:#1e40af; }
+  .green { background:#047857; }
+  .orange { background:#c2410c; }
+  .purple { background:#6d28d9; }
+  .teal { background:#0f766e; }
+  .brown { background:#92400e; }
+  .red { background:#be123c; }
+  .indigo { background:#4338ca; }
+  .chip { display:inline-block; background:#fff; color:#111; border-radius:10px; padding:8px 12px; margin:6px 6px 0 0; font-weight:bold; text-transform:uppercase; font-size:0.95em; }
+  .quiz { background:#fff; color:#111; border-radius:16px; padding:16px; margin:14px 0; border:4px solid #1e40af; }
+  .quiz h3 { margin:0 0 10px; text-transform:uppercase; color:#1e40af; }
+  .opt { display:block; width:100%; text-align:left; margin:8px 0; padding:12px; border-radius:12px; border:3px solid #111; background:#f1f5f9; cursor:pointer; font-family:inherit; font-size:1.05em; font-weight:bold; }
+  .opt:hover { background:#dbeafe; }
+  .opt.good { background:#16a34a; color:#fff; border-color:#14532d; }
+  .opt.bad { background:#dc2626; color:#fff; border-color:#7f1d1d; }
+  .feedback { margin-top:10px; padding:10px; border-radius:10px; font-weight:bold; display:none; }
+  .feedback.ok { background:#dcfce7; color:#14532d; display:block; }
+  .feedback.ko { background:#fee2e2; color:#7f1d1d; display:block; }
+  .score { margin-top:14px; text-align:center; font-size:1.2em; font-weight:bold; text-transform:uppercase; min-height:1.4em; }
+  .score.final { padding:10px; border-radius:10px; }
+  .score.final.ok { background:#dcfce7; color:#14532d; }
+  .score.final.mid { background:#fef9c3; color:#713f12; }
+  .reset { display:block; margin:12px auto 0; padding:10px 22px; border-radius:12px; border:3px solid #111; background:#fbbf24; cursor:pointer; font-family:inherit; font-size:1em; font-weight:bold; text-transform:uppercase; }
+  .reset:hover { background:#f59e0b; }
+  footer { text-align:center; padding:16px; color:#1e40af; font-weight:bold; text-transform:uppercase; }
+  section { display:none; }
+  section.active { display:block; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Révisions 6e — Évaluations</h1>
+  <p>Sciences : L'énergie &nbsp;•&nbsp; Histoire : Le Paléolithique &nbsp;•&nbsp; Français : Le présent de l'indicatif</p>
+</header>
+<nav>
+  <button class="tab-sciences active" onclick="showTab('sciences', this)">⚡ Sciences</button>
+  <button class="tab-histoire" onclick="showTab('histoire', this)">🦣 Histoire</button>
+  <button class="tab-francais" onclick="showTab('francais', this)">✏️ Français</button>
+  <button class="tab-anglais" onclick="showTab('anglais', this)">🇬🇧 Anglais</button>
+  <button class="tab-maths" onclick="showTab('maths', this)">➗ Maths</button>
+  <button class="tab-musique" onclick="showTab('musique', this)">🎵 Musique</button>
+  <button class="tab-programme" onclick="showTab('programme', this)">📅 À venir</button>
+</nav>
+<main>
+
+<section id="sciences" class="active">
+
+  <div class="card blue">
+    <h2>🔋 Les 7 formes d'énergie</h2>
+    <div>
+      <span class="chip">Thermique (chaleur)</span>
+      <span class="chip">Lumineuse (lumière)</span>
+      <span class="chip">Chimique</span>
+      <span class="chip">Électrique</span>
+      <span class="chip">De mouvement (cinétique)</span>
+      <span class="chip">De pesanteur (position)</span>
+      <span class="chip">Nucléaire</span>
+    </div>
+  </div>
+
+  <div class="card green">
+    <h2>🌍 Les ressources d'énergie</h2>
+    <p><strong>RENOUVELABLES</strong> (se renouvellent vite à l'échelle humaine) : <strong>EAU • VENT • SOLEIL</strong></p>
+    <p><strong>NON RENOUVELABLES</strong> (s'épuisent, ne se renouvellent pas) : <strong>PÉTROLE • CHARBON • URANIUM</strong></p>
+    <p style="margin-bottom:0;">Pour vérifier une ressource, demande-toi : <strong>« POURRA-T-ON EN RETROUVER AUTANT DEMAIN ? »</strong></p>
+  </div>
+
+  <div class="card purple">
+    <h2>🔄 La conversion d'énergie</h2>
+    <p><strong>UN TRANSFORMATEUR TRANSFORME UNE FORME D'ÉNERGIE EN UNE AUTRE.</strong></p>
+    <div>
+      <span class="chip">Éolienne</span>
+      <span class="chip">Lampe</span>
+      <span class="chip">Panneau solaire</span>
+      <span class="chip">Sèche-cheveux</span>
+    </div>
+    <p style="margin-top:10px;">Exemples : la <strong>LAMPE</strong> transforme l'énergie <strong>ÉLECTRIQUE</strong> en énergie <strong>LUMINEUSE</strong> et <strong>THERMIQUE</strong>. L'<strong>ÉOLIENNE</strong> transforme l'énergie du <strong>VENT</strong> en énergie <strong>ÉLECTRIQUE</strong>.</p>
+  </div>
+
+  <div class="card teal">
+    <h2>🚜 Les énergies de mouvement</h2>
+    <p>Un objet <strong>EN MOUVEMENT</strong> possède de l'énergie <strong>CINÉTIQUE</strong>.</p>
+    <p>Un objet <strong>EN HAUTEUR</strong> (du fait de sa position) possède de l'énergie <strong>DE PESANTEUR</strong>.</p>
+    <p style="margin-bottom:0;">Exemple du tracteur : il roule de <strong>A</strong> à <strong>B</strong> → énergie <strong>CINÉTIQUE</strong>.<br/>Le rouleau de foin monte de <strong>C</strong> à <strong>D</strong> → il gagne de l'énergie <strong>DE PESANTEUR</strong>.</p>
+  </div>
+
+  <div class="card orange">
+    <h2>💡 Le circuit électrique</h2>
+    <p>Pour allumer une lampe, on la relie à une <strong>PILE</strong> avec des <strong>FILS DE CONNEXION</strong> (circuit fermé).</p>
+    <p style="margin-bottom:0;">La lampe a besoin d'énergie <strong>ÉLECTRIQUE</strong> pour éclairer. C'est la <strong>PILE</strong> qui lui fournit cette énergie : elle stocke de l'énergie <strong>CHIMIQUE</strong> et la transforme en énergie électrique.</p>
+  </div>
+
+  <div class="quiz">
+    <h3>📝 Quiz Sciences</h3>
+    <div id="quiz-sciences"></div>
+    <div class="score" id="score-sciences"></div>
+    <button class="reset" onclick="resetQuiz('quiz-sciences', quizSciences, 'score-sciences')">🔄 Recommencer</button>
+  </div>
+
+</section>
+
+<section id="histoire">
+
+  <div class="card brown">
+    <h2>🦣 Les humains du Paléolithique</h2>
+    <p style="margin:4px 0;"><strong>ACTIVITÉS :</strong> <span class="chip">Chasse</span><span class="chip">Pêche</span><span class="chip">Cueillette</span></p>
+    <p style="margin:4px 0;"><strong>TECHNIQUES :</strong> <span class="chip">Outils en os</span><span class="chip">Silex taillé</span></p>
+    <p style="margin:4px 0;"><strong>MODE DE VIE ET HABITAT :</strong> <span class="chip">Nomadisme</span><span class="chip">Tentes</span><span class="chip">Grottes</span></p>
+    <p style="margin:4px 0;"><strong>ART :</strong> <span class="chip">Peintures rupestres</span><span class="chip">Statuettes de femmes</span></p>
+  </div>
+
+  <div class="card teal">
+    <h2>🔑 À retenir</h2>
+    <p>Au <strong>PALÉOLITHIQUE</strong>, les humains sont <strong>NOMADES</strong> : ils se déplacent pour <strong>CHASSER, PÊCHER ET CUEILLIR</strong> leur nourriture.</p>
+    <p>Ils fabriquent des outils en <strong>SILEX TAILLÉ</strong> et en <strong>OS</strong>. Ils s'abritent dans des <strong>TENTES</strong> ou des <strong>GROTTES</strong>.</p>
+    <p style="margin-bottom:0;">Ils réalisent des <strong>PEINTURES RUPESTRES</strong> sur les parois des grottes et des <strong>STATUETTES</strong> de femmes.</p>
+  </div>
+
+  <div class="quiz">
+    <h3>📝 Quiz Histoire</h3>
+    <div id="quiz-histoire"></div>
+    <div class="score" id="score-histoire"></div>
+    <button class="reset" onclick="resetQuiz('quiz-histoire', quizHistoire, 'score-histoire')">🔄 Recommencer</button>
+  </div>
+
+</section>
+
+<section id="francais">
+
+  <div class="card red">
+    <h2>✏️ Le présent de l'indicatif : les 3 groupes</h2>
+    <p><strong>1er GROUPE (-ER)</strong> : je parle, tu parles, il parle, nous parl<strong>ons</strong>, vous parl<strong>ez</strong>, ils parl<strong>ent</strong>.</p>
+    <p><strong>2e GROUPE (-IR / NOUS -ISSONS)</strong> : je finis, tu finis, il finit, nous finissons, vous finissez, ils finissent.</p>
+    <p><strong>3e GROUPE (tous les autres)</strong> : prendre, venir, faire, être, avoir, ouvrir, cueillir…</p>
+    <p style="margin-bottom:0;"><strong>ATTENTION :</strong> avec « ils », le 3e groupe peut finir en <strong>-ENT</strong> (ils veulent, ils parviennent, ils cueillent) ou en <strong>-ONT</strong> (ils sont, ils ont, ils font, ils vont).</p>
+  </div>
+
+  <div class="card indigo">
+    <h2>🔢 La méthode en 4 étapes (sujets inversés)</h2>
+    <p><strong>1. JE CHERCHE LE SUJET</strong> — souvent placé <strong>APRÈS</strong> le verbe dans une phrase interrogative !</p>
+    <p><strong>2. JE LE REMPLACE PAR UN PRONOM PERSONNEL</strong> (je, tu, il/elle, nous, vous, ils/elles)</p>
+    <p><strong>3. JE CHERCHE LE GROUPE DU VERBE</strong> (grâce à son infinitif)</p>
+    <p><strong>4. JE METS LA BONNE TERMINAISON</strong></p>
+    <p style="margin-top:8px; margin-bottom:0;">Exemple : « (Venir)-vous à la conférence ? » → le sujet est <strong>VOUS</strong> → <strong>VENEZ</strong>-vous à la conférence ?</p>
+  </div>
+
+  <div class="card blue">
+    <h2>⚠️ Pièges du 1er groupe</h2>
+    <p>Verbes en <strong>-IER, -UER, -OUER, -ÉER</strong> : on garde le « e » → nous repli<strong>ons</strong> (replier), tu étudi<strong>es</strong> (étudier).</p>
+    <p>Verbes en <strong>-CER</strong> : « nous » prend une cédille → nous commen<strong>çons</strong> (commencer).</p>
+    <p>Verbes en <strong>-GER</strong> : « nous » prend un « e » → nous mang<strong>eons</strong> (manger).</p>
+    <p>Verbes en <strong>-YER</strong> : le y devient i devant un e muet → tu essa<strong>ies</strong> (essayer).</p>
+    <p style="margin-bottom:0;">Verbes en <strong>-ELER / -ETER</strong> : la consonne double → j'app<strong>elle</strong> (appeler), je j<strong>ette</strong> (jeter).</p>
+  </div>
+
+  <div class="quiz">
+    <h3>📝 Quiz Français</h3>
+    <div id="quiz-francais"></div>
+    <div class="score" id="score-francais"></div>
+    <button class="reset" onclick="resetQuiz('quiz-francais', quizFrancais, 'score-francais')">🔄 Recommencer</button>
+  </div>
+
+</section>
+
+<section id="anglais">
+
+  <div class="card green">
+    <h2>🎨 The colours — les couleurs</h2>
+    <div>
+      <span class="chip">RED (rouge)</span>
+      <span class="chip">BLUE (bleu)</span>
+      <span class="chip">GREEN (vert)</span>
+      <span class="chip">YELLOW (jaune)</span>
+      <span class="chip">BLACK (noir)</span>
+      <span class="chip">WHITE (blanc)</span>
+      <span class="chip">BROWN (marron)</span>
+      <span class="chip">GREY (gris)</span>
+      <span class="chip">ORANGE</span>
+      <span class="chip">PINK (rose)</span>
+      <span class="chip">PURPLE (violet)</span>
+    </div>
+  </div>
+
+  <div class="card blue">
+    <h2>🅱️ Le verbe BE (être) au présent</h2>
+    <p><strong>I AM</strong> (je suis) — <strong>YOU ARE</strong> (tu es / vous êtes)</p>
+    <p><strong>HE IS / SHE IS / IT IS</strong> (il est / elle est)</p>
+    <p><strong>WE ARE</strong> (nous sommes) — <strong>THEY ARE</strong> (ils/elles sont)</p>
+    <p><strong>NÉGATION :</strong> I am not (I'm not), he is not (isn't), they are not (aren't).</p>
+    <p style="margin-bottom:0;"><strong>QUESTION :</strong> Am I…? Are you…? Is he…? — <em>Are you ready?</em></p>
+  </div>
+
+  <div class="card purple">
+    <h2>🔊 Les diphtongues (2 sons en 1 !)</h2>
+    <p><strong>/Aɪ/</strong> comme dans <strong>WHITE, SPIDER, MY, LIKE</strong></p>
+    <p><strong>/Eɪ/</strong> comme dans <strong>SNAKE, GREY, DAY, NAME</strong></p>
+    <p><strong>/Aʊ/</strong> comme dans <strong>BROWN, NOW, HOUSE, MOUSE</strong></p>
+    <p style="margin-bottom:0;">Astuce : écoute et répète à voix haute les exercices du livre page 28 (Practise A, 1 et 2) !</p>
+  </div>
+
+  <div class="card orange">
+    <h2>📖 Leçon par cœur (workbook page 4)</h2>
+    <p>Apprendre les <strong>2 PHRASES</strong> du cahier d'activités page 4 : « <strong>RECAP WHAT YOU KNOW ABOUT THE PET</strong> » (ce que tu sais sur l'animal de compagnie).</p>
+    <p style="margin-bottom:0;">Exemples : « <strong>IT IS A DOG. IT IS BROWN.</strong> » — « <strong>MY CAT IS WHITE. IT IS TWO YEARS OLD.</strong> »</p>
+  </div>
+
+  <div class="quiz">
+    <h3>📝 Quiz Anglais</h3>
+    <div id="quiz-anglais"></div>
+    <div class="score" id="score-anglais"></div>
+    <button class="reset" onclick="resetQuiz('quiz-anglais', quizAnglais, 'score-anglais')">🔄 Recommencer</button>
+  </div>
+
+</section>
+
+<section id="maths">
+
+  <div class="card indigo">
+    <h2>➗ Poser une soustraction de nombres décimaux</h2>
+    <p><strong>ÉTAPE 1 :</strong> j'écris les nombres <strong>L'UN SOUS L'AUTRE</strong>, en alignant bien les <strong>VIRGULES</strong>.</p>
+    <p><strong>ÉTAPE 2 :</strong> je soustrais colonne par colonne, en commençant par la <strong>DROITE</strong>. Je peux ajouter des zéros : 5,4 = 5,40.</p>
+    <p><strong>ÉTAPE 3 :</strong> je place la <strong>VIRGULE DU RÉSULTAT</strong> exactement sous les autres virgules.</p>
+    <p style="margin-bottom:0;">Exemple : 12,8 − 4,65 = <strong>8,15</strong> — entraîne-toi en posant les exercices 6 et 8 page 291 !</p>
+  </div>
+
+  <div class="card blue">
+    <h2>⏰ Les durées</h2>
+    <p><strong>1 HEURE = 60 MINUTES</strong> &nbsp;•&nbsp; <strong>1 MINUTE = 60 SECONDES</strong></p>
+    <p>Pour additionner ou soustraire des durées, j'aligne <strong>HEURES / MINUTES / SECONDES</strong> en colonnes, comme une addition posée.</p>
+    <p style="margin-bottom:0;">Si les minutes dépassent 60 : je convertis (75 min = 1 h 15 min). Si je n'ai pas assez de minutes pour soustraire : j'emprunte 1 heure = 60 minutes !</p>
+  </div>
+
+  <div class="quiz">
+    <h3>📝 Quiz Maths</h3>
+    <div id="quiz-maths"></div>
+    <div class="score" id="score-maths"></div>
+    <button class="reset" onclick="resetQuiz('quiz-maths', quizMaths, 'score-maths')">🔄 Recommencer</button>
+  </div>
+
+</section>
+
+<section id="musique">
+
+  <div class="card purple">
+    <h2>🎻 Les familles d'instruments de l'orchestre</h2>
+    <p><strong>LES CORDES</strong> : violon, alto, violoncelle, contrebasse — le son est produit par la <strong>VIBRATION DES CORDES</strong> (frottées ou pincées).</p>
+    <p><strong>LES BOIS</strong> : flûte, clarinette, hautbois, basson — le son est produit par le <strong>SOUFFLE DE L'AIR</strong>.</p>
+    <p><strong>LES CUIVRES</strong> : trompette, trombone, tuba — le son est produit par les <strong>LÈVRES QUI VIBRENT</strong>.</p>
+    <p style="margin-bottom:0;"><strong>LES PERCUSSIONS</strong> : timbales, tambour, xylophone — le son est produit en <strong>FRAPPANT</strong> l'instrument. Le <strong>CHEF D'ORCHESTRE</strong> dirige l'ensemble.</p>
+  </div>
+
+  <div class="card red">
+    <h2>🔊 Les nuances (le volume du son)</h2>
+    <div>
+      <span class="chip">p = PIANO (doux)</span>
+      <span class="chip">f = FORTE (fort)</span>
+      <span class="chip">pp = PIANISSIMO (très doux)</span>
+      <span class="chip">ff = FORTISSIMO (très fort)</span>
+      <span class="chip">mf = MEZZO-FORTE (moyennement fort)</span>
+    </div>
+    <p style="margin-top:10px;"><strong>CRESCENDO</strong> : le son <strong>MONTE</strong> progressivement (de plus en plus fort).</p>
+    <p style="margin-bottom:0;"><strong>DECRESCENDO (DIMINUENDO)</strong> : le son <strong>DESCEND</strong> progressivement (de plus en plus doux).</p>
+  </div>
+
+  <div class="quiz">
+    <h3>📝 Quiz Musique</h3>
+    <div id="quiz-musique"></div>
+    <div class="score" id="score-musique"></div>
+    <button class="reset" onclick="resetQuiz('quiz-musique', quizMusique, 'score-musique')">🔄 Recommencer</button>
+  </div>
+
+</section>
+
+<section id="programme">
+
+  <div class="card brown">
+    <h2>📅 À faire pour les prochains jours</h2>
+    <p><strong>Demain (jeudi 12 nov.) — JOURNÉE D'ÉVALUATIONS :</strong></p>
+    <p style="margin:4px 0 4px 12px;">• ⚡ <strong>PHYSIQUE-CHIMIE</strong> : évaluation énergie (réviser la correction du TP circuit + ex 3 p.35 + carte mémo p.39 + bilan 1 p.38)</p>
+    <p style="margin:4px 0 4px 12px;">• ✏️ <strong>FRANÇAIS</strong> : le présent de l'indicatif (leçon + poly sujets inversés + tableaux du manuel)</p>
+    <p style="margin:4px 0 4px 12px;">• 🇬🇧 <strong>ANGLAIS</strong> : couleurs + verbe BE + leçon par cœur (2 phrases) + diphtongues</p>
+    <p style="margin:4px 0 4px 12px;">• 🦣 <strong>HISTOIRE</strong> : évaluation — ne pas oublier les <strong>CRAYONS DE COULEUR VERT ET ROUGE</strong> !</p>
+    <p style="margin:4px 0 4px 12px;">• 🎵 <strong>MUSIQUE</strong> : évaluation écrite (instruments de l'orchestre, nuances)</p>
+    <p><strong>Vendredi 13 nov. :</strong></p>
+    <p style="margin:4px 0 4px 12px;">• ➗ <strong>MATHS</strong> : lire et apprendre la leçon + refaire les exemples + exercices 6 et 8 p.291 <strong>EN POSANT</strong></p>
+    <p><strong>Mardi 17 nov. :</strong></p>
+    <p style="margin:4px 0 4px 12px;">• ➗ <strong>MATHS</strong> : finir les exercices Labomep « 6e Calculs de décimaux (soustractions puis heures) » — <strong>DEVOIR NOTÉ</strong></p>
+    <p><strong>SVT (à prévoir) :</strong></p>
+    <p style="margin:4px 0 4px 12px; margin-bottom:0;">• 🍞 Apporter les <strong>2 PAINS</strong> faits à la maison + la fiche complétée (consignes 2 et 3)</p>
+  </div>
+
+</section>
+
+</main>
+<footer>Bon courage pour les évaluations ! 💪</footer>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll("section").forEach(function(s){ s.classList.remove("active"); });
+  document.querySelectorAll("nav button").forEach(function(b){ b.classList.remove("active"); });
+  document.getElementById(id).classList.add("active");
+  btn.classList.add("active");
+}
+
+function shuffle(arr) {
+  var copy = arr.slice();
+  for (var i = copy.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = copy[i]; copy[i] = copy[j]; copy[j] = t;
+  }
+  return copy;
+}
+
+var praise = [
+  "🌟 PARFAIT ! TU ES PRÊT(E) POUR L'ÉVALUATION !",
+  "👏 SUPERBE, QUELLE CLASSE !",
+  "💪 EXCELLENT, CONTINUE COMME ÇA !"
+];
+
+function buildQuiz(containerId, questions, scoreId) {
+  var cont = document.getElementById(containerId);
+  cont.innerHTML = "";
+  var scoreEl = document.getElementById(scoreId);
+  scoreEl.textContent = "";
+  scoreEl.className = "score";
+  var score = 0, done = 0, total = questions.length;
+  var order = shuffle(questions);
+  order.forEach(function(item, qi) {
+    var div = document.createElement("div");
+    div.style.marginBottom = "18px";
+    var q = document.createElement("p");
+    q.innerHTML = "<strong>" + (qi + 1) + ") " + item.q.toUpperCase() + "</strong>";
+    div.appendChild(q);
+    var fb = document.createElement("div");
+    fb.className = "feedback";
+    var opts = shuffle(item.opts.map(function(o, idx){ return { text: o, good: idx === item.a }; }));
+    opts.forEach(function(opt) {
+      var b = document.createElement("button");
+      b.className = "opt";
+      b.textContent = opt.text;
+      b.onclick = function() {
+        if (div.dataset.answered) return;
+        div.dataset.answered = "1";
+        done++;
+        if (opt.good) {
+          b.classList.add("good");
+          score++;
+          fb.className = "feedback ok";
+          fb.textContent = "✔ BRAVO, C'EST JUSTE !";
+        } else {
+          b.classList.add("bad");
+          div.querySelectorAll(".opt").forEach(function(x, xi){ if (opts[xi].good) x.classList.add("good"); });
+          fb.className = "feedback ko";
+          fb.textContent = "✘ PRESQUE ! LA BONNE RÉPONSE EST EN VERT.";
+        }
+        if (done < total) {
+          scoreEl.textContent = "SCORE : " + score + " / " + done + " — QUESTION " + (done + 1) + " SUR " + total;
+        } else {
+          scoreEl.className = "score final " + (score === total ? "ok" : (score >= total / 2 ? "mid" : ""));
+          var msg;
+          if (score === total) { msg = praise[Math.floor(Math.random() * praise.length)]; }
+          else if (score >= total * 0.7) { msg = "👏 TRÈS BIEN ! RELIS LES FICHES EN ORANGE PUIS RECOMMENCE."; }
+          else if (score >= total / 2) { msg = "💪 C'EST UN BON DÉBUT ! RELIS LES FICHES PUIS RECOMMENCE."; }
+          else { msg = "🔄 REVOIS LES FICHES DE RÉVISION EN HAUT, PUIS RECOMMENCE. TU VAS Y ARRIVER !"; }
+          scoreEl.textContent = "TERMINÉ ! SCORE FINAL : " + score + " / " + total + " — " + msg;
+        }
+      };
+      div.appendChild(b);
+    });
+    div.appendChild(fb);
+    cont.appendChild(div);
+  });
+}
+
+function resetQuiz(containerId, questions, scoreId) {
+  buildQuiz(containerId, questions, scoreId);
+}
+
+var quizSciences = [
+  { q: "Quelle forme d'énergie possède un objet EN MOUVEMENT ?", opts: ["L'énergie cinétique", "L'énergie de pesanteur", "L'énergie chimique"], a: 0 },
+  { q: "Quelle forme d'énergie possède un objet du fait de SA POSITION en hauteur ?", opts: ["L'énergie thermique", "L'énergie de pesanteur", "L'énergie nucléaire"], a: 1 },
+  { q: "Quelle est l'énergie dont a besoin la LAMPE pour éclairer ?", opts: ["L'énergie lumineuse", "L'énergie électrique", "L'énergie thermique"], a: 1 },
+  { q: "Quel élément fournit son énergie à la lampe dans le circuit ?", opts: ["Les fils de connexion", "La pile", "Le support"], a: 1 },
+  { q: "Quelles ressources d'énergie sont RENOUVELABLES ?", opts: ["Pétrole, charbon, uranium", "Eau, vent, soleil", "Uranium, soleil, charbon"], a: 1 },
+  { q: "L'URANIUM est une ressource…", opts: ["Renouvelable", "Non renouvelable", "Inépuisable"], a: 1 },
+  { q: "Comment appelle-t-on un dispositif qui transforme une forme d'énergie en une autre ?", opts: ["Un transformateur", "Un réservoir", "Un stockage"], a: 0 },
+  { q: "Le tracteur roule de la position A à la position B : il possède…", opts: ["De l'énergie de pesanteur", "De l'énergie cinétique", "De l'énergie nucléaire"], a: 1 },
+  { q: "Le rouleau de foin est soulevé de C vers D : il gagne…", opts: ["De l'énergie cinétique", "De l'énergie lumineuse", "De l'énergie de pesanteur"], a: 2 },
+  { q: "Combien y a-t-il de formes d'énergie à connaître ?", opts: ["5", "6", "7"], a: 2 },
+  { q: "Quelle énergie l'ÉOLIENNE produit-elle à partir du vent ?", opts: ["De l'énergie électrique", "De l'énergie chimique", "De l'énergie nucléaire"], a: 0 },
+  { q: "Que stocke la PILE et qu'elle transforme en énergie électrique ?", opts: ["De l'énergie chimique", "De l'énergie lumineuse", "De l'énergie de pesanteur"], a: 0 }
+];
+
+var quizHistoire = [
+  { q: "Au Paléolithique, comment vivent les humains ?", opts: ["Ils sont nomades", "Ils sont sédentaires", "Ils vivent dans des villes"], a: 0 },
+  { q: "Quelles sont leurs ACTIVITÉS pour se nourrir ?", opts: ["Agriculture et élevage", "Chasse, pêche et cueillette", "Commerce et artisanat"], a: 1 },
+  { q: "Dans quels matériaux taillent-ils leurs outils ?", opts: ["Le métal", "Le silex et l'os", "Le plastique"], a: 1 },
+  { q: "Où peuvent-ils s'abriter ?", opts: ["Dans des tentes ou des grottes", "Dans des châteaux", "Dans des fermes"], a: 0 },
+  { q: "Comment appelle-t-on les peintures réalisées sur les parois des grottes ?", opts: ["Des fresques modernes", "Des peintures rupestres", "Des dessins sur papier"], a: 1 },
+  { q: "Quels objets d'art fabriquent-ils aussi ?", opts: ["Des statuettes de femmes", "Des mosaïques", "Des photographies"], a: 0 },
+  { q: "Pourquoi sont-ils NOMADES ?", opts: ["Pour suivre les animaux et trouver de quoi se nourrir", "Pour viser de nouveaux pays", "Pour chercher de l'or"], a: 0 }
+];
+
+var quizFrancais = [
+  { q: "« Nous (finir) notre travail. » → quelle est la bonne forme ?", opts: ["Nous finissons notre travail", "Nous finissont notre travail", "Nous finirons notre travail"], a: 0 },
+  { q: "À quel groupe appartient le verbe FINIR ?", opts: ["1er groupe (-er)", "2e groupe (-ir, nous -issons)", "3e groupe"], a: 1 },
+  { q: "« Vous (venir) à la conférence ? » → ?", opts: ["Vous vennez", "Vous venez", "Vous venés"], a: 1 },
+  { q: "« Elles (parvenir) à résoudre le problème. » → ?", opts: ["Elles parviennent", "Elles parviennont", "Elles parvenent"], a: 0 },
+  { q: "« Je (pouvoir) y arriver. » → ?", opts: ["Je peux", "Je peut", "Je pouvais"], a: 0 },
+  { q: "« Nous (commencer) les révisions. » → ?", opts: ["Nous commençons", "Nous commencons", "Nous commenceons"], a: 0 },
+  { q: "Dans « Arrivez-vous à l'heure ? », où est le sujet ?", opts: ["Avant le verbe", "Après le verbe (sujet inversé)", "Il n'y a pas de sujet"], a: 1 },
+  { q: "« Les filles (cueillir) des fleurs. » → ?", opts: ["Elles cueillent", "Elles cueillissent", "Elles cueillons"], a: 0 },
+  { q: "« Tu (ouvrir) la porte. » → ?", opts: ["Tu ouvres", "Tu ouvriras", "Tu ouvrit"], a: 0 },
+  { q: "« Vous (redire) la réponse. » → ?", opts: ["Vous redisez", "Vous redites", "Vous redissent"], a: 1 },
+  { q: "« Nous (manger) à la cantine. » → ?", opts: ["Nous mangons", "Nous mangeons", "Nous mangez"], a: 1 },
+  { q: "« Je (jeter) l'ordure à la poubelle. » → ?", opts: ["Je jette", "Je jete", "Je jetons"], a: 0 }
+];
+
+var quizAnglais = [
+  { q: "Comment dit-on « GRIS » en anglais ?", opts: ["Grey", "Green", "Great"], a: 0 },
+  { q: "Comment dit-on « MARRON » en anglais ?", opts: ["Black", "Brown", "Blue"], a: 1 },
+  { q: "« She … my sister. » → quelle forme du verbe BE ?", opts: ["am", "is", "are"], a: 1 },
+  { q: "« They … ready. » → quelle forme du verbe BE ?", opts: ["is", "am", "are"], a: 2 },
+  { q: "« I … not tired. » → quelle forme du verbe BE ?", opts: ["am", "is", "are"], a: 0 },
+  { q: "Dans quel mot entend-on la diphtongue /Aɪ/ comme dans WHITE ?", opts: ["Snake", "Spider", "Brown"], a: 1 },
+  { q: "Dans quel mot entend-on la diphtongue /Eɪ/ comme dans SNAKE ?", opts: ["Grey", "House", "Spider"], a: 0 },
+  { q: "Dans quel mot entend-on la diphtongue /Aʊ/ comme dans BROWN ?", opts: ["White", "Now", "Day"], a: 1 },
+  { q: "« Are you ready? » veut dire…", opts: ["« Es-tu prêt ? »", "« Où es-tu ? »", "« Qui es-tu ? »"], a: 0 },
+  { q: "Comment pose-t-on la question avec HE ?", opts: ["Am he ready?", "Is he ready?", "Are he ready?"], a: 1 }
+];
+
+var quizMaths = [
+  { q: "Avant de soustraire des nombres décimaux, qu'est-ce qu'on aligne en premier ?", opts: ["Les chiffres de droite", "Les virgules", "Les unités de milliers"], a: 1 },
+  { q: "12,8 − 4,65 = ?", opts: ["8,15", "8,25", "7,15"], a: 0 },
+  { q: "5,4 peut aussi s'écrire…", opts: ["5,04", "5,40", "54,0"], a: 1 },
+  { q: "Dans le résultat d'une soustraction posée, où place-t-on la virgule ?", opts: ["N'importe où", "Toujours à la fin", "Alignée sous les autres virgules"], a: 2 },
+  { q: "1 heure = combien de minutes ?", opts: ["100 minutes", "60 minutes", "24 minutes"], a: 1 },
+  { q: "75 minutes = ?", opts: ["1 h 15 min", "1 h 75 min", "7 h 5 min"], a: 0 },
+  { q: "2 h 30 min + 45 min = ?", opts: ["2 h 75 min", "3 h 15 min", "2 h 15 min"], a: 1 },
+  { q: "Pour soustraire 20 min de 1 h 05 min, que fait-on ?", opts: ["On emprunte 1 heure = 60 minutes", "On abandonne les minutes", "On multiplie par 60"], a: 0 }
+];
+
+var quizMusique = [
+  { q: "À quelle famille appartient le VIOLON ?", opts: ["Les bois", "Les cordes", "Les cuivres"], a: 1 },
+  { q: "À quelle famille appartient la CLARINETTE ?", opts: ["Les bois", "Les percussions", "Les cordes"], a: 0 },
+  { q: "À quelle famille appartient la TROMPETTE ?", opts: ["Les bois", "Les cordes", "Les cuivres"], a: 2 },
+  { q: "À quelle famille appartiennent les TIMBALES ?", opts: ["Les percussions", "Les cuivres", "Les bois"], a: 0 },
+  { q: "Que signifie la nuance « f » (forte) ?", opts: ["Jouer doucement", "Jouer fort", "Jouer vite"], a: 1 },
+  { q: "Que signifie la nuance « p » (piano) ?", opts: ["Jouer doucement", "Jouer fort", "Jouer lentement"], a: 0 },
+  { q: "Le CRESCENDO, c'est quand le son…", opts: ["Monte progressivement (de plus en plus fort)", "Descend progressivement", "Reste pareil"], a: 0 },
+  { q: "Qui dirige l'orchestre ?", opts: ["Le chef d'orchestre", "Le premier violon uniquement", "Le public"], a: 0 }
+];
+
+buildQuiz("quiz-sciences", quizSciences, "score-sciences");
+buildQuiz("quiz-histoire", quizHistoire, "score-histoire");
+buildQuiz("quiz-francais", quizFrancais, "score-francais");
+buildQuiz("quiz-anglais", quizAnglais, "score-anglais");
+buildQuiz("quiz-maths", quizMaths, "score-maths");
+buildQuiz("quiz-musique", quizMusique, "score-musique");
+</script>
+</body>
+</html>
